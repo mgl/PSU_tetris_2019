@@ -7,7 +7,8 @@
 
 NAME	=	tetris
 
-SRC	=	src/main.c \
+SRC	=	src/main.c		\
+		src/tetris.c	\
 
 OBJ	=	$(SRC:%.c=%.o)
 
