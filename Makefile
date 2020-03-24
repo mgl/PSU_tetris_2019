@@ -9,6 +9,8 @@ NAME	=	tetris
 
 SRC	=	src/main.c		\
 		src/tetris.c	\
+		src/tetrimino/tetrimino.c \
+		src/tetrimino/tetrimino_debug.c \
 
 OBJ	=	$(SRC:%.c=%.o)
 
@@ -28,7 +30,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 			$(MAKE) -C $(LIB_DIR)
-			$(CC) -o $(NAME) $(OBJ) $(LDFLAGS) 
+			$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 clean:
 			$(MAKE) -C $(LIB_DIR) clean

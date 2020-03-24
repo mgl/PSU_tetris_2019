@@ -8,15 +8,19 @@
 #ifndef TETRIS_H_
 #define TETRIS_H_
 
+#include "my.h"
 #include <unistd.h>
+#include <stdlib.h>
 #include <ncurses.h>
+#include <curses.h>
 
 typedef struct tetrimino_s {
     int width;
     int height;
     int color;
+    char *name;
     char **array;
-    tetrimino_t *next;
+    struct tetrimino_s *next;
 } tetrimino_t;
 
 typedef struct tetris_s {
@@ -36,6 +40,19 @@ typedef struct tetris_s {
 
 /* tetris.c */
 
-int tetris(int ac, char *av);
+int tetris(int ac, char **av);
+
+/* tetrimino.c */
+
+tetrimino_t *init_tetrimino(void);
+void add_tetrimino(tetrimino_t *t_list, tetrimino_t *to_add);
+void free_array(char **array);
+void free_t_list(tetrimino_t *t_list);
+int get_t_list_size(tetrimino_t *t_list);
+
+/* tetrimino_debug.c */
+
+void debug_t_list(tetrimino_t *t_list);
+void debug_tetrimino(tetrimino_t *tetrimino);
 
 #endif /* !TETRIS_H_ */
