@@ -55,4 +55,8 @@ int get_t_list_size(tetrimino_t *t_list);
 void debug_t_list(tetrimino_t *t_list);
 void debug_tetrimino(tetrimino_t *tetrimino);
 
+/* init_tetris.c */
+
+tetris_t *init_tetris(void);
+
 #endif /* !TETRIS_H_ */

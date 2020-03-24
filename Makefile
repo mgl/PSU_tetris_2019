@@ -5,26 +5,41 @@
 ## Makefile
 ##
 
-NAME	=	tetris
+NAME		=	tetris
 
-SRC	=	src/main.c		\
-		src/tetris.c	\
-		src/tetrimino/tetrimino.c \
+SRC	=	src/main.c						\
+		src/tetris.c					\
+		src/tetrimino/tetrimino.c 		\
 		src/tetrimino/tetrimino_debug.c \
+		src/init_tetris.c 				\
 
-OBJ	=	$(SRC:%.c=%.o)
+test_NAME	=		unit_test
 
-INCLUDE	=	-I include
+MAIN 		=		src/main.c
 
-CFLAGS	=	-W -Wall -Wshadow -Wextra $(INCLUDE)
+SRC			=	src/tetris.c		\
+				src/init_tetris.c	\
 
-LIB_DIR	=	lib/my
+test_SRC	=	$(SRC)					\
+				tests/test_init_tetris.c\
 
-LIB	=	-L $(LIB_DIR) -lmy
+OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
-LDFLAGS	=	$(LIB)
+test_OBJ	=	$(test_SRC:%.c=%.o)
 
-CC	=	gcc
+INCLUDE		=	-I include
+
+CFLAGS		=	-W -Wall -Wshadow -Wextra $(INCLUDE)
+
+LIB_DIR		=	lib/my
+
+LIB			=	-L $(LIB_DIR) -lmy
+
+LDFLAGS		=	$(LIB)
+
+test_LDFLAGS= 	-lcriterion --coverage $(LIB)
+
+CC			=	gcc
 
 all:	$(NAME)
 
@@ -41,5 +56,34 @@ fclean:		clean
 			$(RM) $(NAME)
 
 re:	fclean all
+
+tests_run:		$(test_OBJ)
+				$(MAKE) -C $(LIB_DIR)
+				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
+				rm -f $(test_OBJ)
+				./unit_test
+				rm -f $(test_NAME)
+				rm *.gcda
+				rm *.gcno
+
+coverage:		$(test_OBJ)
+				$(MAKE) -C $(LIB_DIR)
+				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
+				rm -f $(test_OBJ)
+				./unit_test
+				gcovr -e tests/ -e src/display.c
+				rm -f $(test_NAME)
+				rm *.gcda
+				rm *.gcno
+
+branch	:		$(test_OBJ)
+				$(MAKE) -C $(LIB_DIR)
+				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
+				rm -f $(test_OBJ)
+				./unit_test
+				gcovr -e tests/ -e src/display.c --branch
+				rm -f $(test_NAME)
+				rm *.gcda
+				rm *.gcno
 
 .PHONY: all clean fclean re
