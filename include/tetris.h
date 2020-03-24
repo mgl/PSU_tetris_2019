@@ -16,7 +16,7 @@ typedef struct tetrimino_s {
     int height;
     int color;
     char **array;
-    tetrimino_t *next;
+    struct tetrimino_s *next;
 } tetrimino_t;
 
 typedef struct tetris_s {
@@ -36,6 +36,10 @@ typedef struct tetris_s {
 
 /* tetris.c */
 
-int tetris(int ac, char *av);
+int tetris(int ac, char **av);
+
+/* initialisation */
+
+tetris_t *init_tetris(void);
 
 #endif /* !TETRIS_H_ */
