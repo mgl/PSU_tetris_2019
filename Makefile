@@ -7,21 +7,23 @@
 
 NAME		=	tetris
 
-SRC	=	src/main.c						\
+SRC	=	src/tetrimino/file/open_dir.c	\
+		src/tetrimino/file/sort_array.c \
 		src/tetris.c					\
 		src/tetrimino/tetrimino.c 		\
 		src/tetrimino/tetrimino_debug.c \
 		src/init_tetris.c 				\
+		src/get_arg.c					\
+		src/set_tetris.c				\
+		src/tetris.c					\
+		src/init_tetris.c				\
+		src/get_arg.c					\
+		src/set_tetris.c				\
+		src/set_keys.c					\
 
 test_NAME	=	unit_test
 
 MAIN 		=	src/main.c
-
-SRC			=	src/tetris.c		\
-				src/init_tetris.c	\
-				src/get_arg.c		\
-				src/set_tetris.c	\
-				src/set_keys.c		\
 
 test_SRC	=	$(SRC)					\
 				tests/test_init_tetris.c\
@@ -38,7 +40,7 @@ test_OBJ	=	$(test_SRC:%.c=%.o)
 
 INCLUDE		=	-I include
 
-CFLAGS		=	-W -Wall -Wshadow -Wextra $(INCLUDE) -g
+CFLAGS		=	-O2 -W -Wall -Wshadow -Wextra $(INCLUDE)
 
 LIB_DIR		=	lib/my
 

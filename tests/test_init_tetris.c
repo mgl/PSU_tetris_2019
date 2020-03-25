@@ -8,7 +8,8 @@
 #include <criterion/criterion.h>
 #include "tetris.h"
 
-Test(init_tetris, true) {
+Test(init_tetris, true)
+{
     tetris_t *tetris = init_tetris();
 
     if (tetris) {

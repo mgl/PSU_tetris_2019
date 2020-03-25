@@ -13,6 +13,10 @@
 #include <stdlib.h>
 #include <ncurses.h>
 #include <curses.h>
+#include <sys/types.h>
+#include <dirent.h>
+
+#define T_DIR ("tetriminos")
 #define OPTSTRING "hL:l:r:t:d:q:p:w:D"
 #define ERROR 84
 #define SUCCESS 0
@@ -57,6 +61,14 @@ int get_t_list_size(tetrimino_t *t_list);
 
 void debug_t_list(tetrimino_t *t_list);
 void debug_tetrimino(tetrimino_t *tetrimino);
+
+/* sort_array.c */
+
+void sort_files(char **files, int size);
+
+/* open_dir.c */
+
+char **get_tetriminos_array(void);
 
 /* init_tetris.c */
 
