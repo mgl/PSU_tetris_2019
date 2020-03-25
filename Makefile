@@ -7,6 +7,11 @@
 
 NAME		=	tetris
 
+SRC	=	src/main.c						\
+		src/tetris.c					\
+		src/tetrimino/tetrimino.c 		\
+		src/tetrimino/tetrimino_debug.c \
+		src/init_tetris.c 				\
 
 test_NAME	=	unit_test
 

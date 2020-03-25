@@ -8,8 +8,11 @@
 #ifndef TETRIS_H_
 #define TETRIS_H_
 
+#include "my.h"
 #include <unistd.h>
+#include <stdlib.h>
 #include <ncurses.h>
+#include <curses.h>
 #define OPTSTRING "hL:l:r:t:d:q:w:D"
 #define ERROR 84
 #define SUCCESS 0
@@ -18,6 +21,7 @@ typedef struct tetrimino_s {
     int width;
     int height;
     int color;
+    char *name;
     char **array;
     struct tetrimino_s *next;
 } tetrimino_t;
@@ -41,7 +45,20 @@ typedef struct tetris_s {
 
 int tetris(int ac, char **av);
 
-/* initialisation */
+/* tetrimino.c */
+
+tetrimino_t *init_tetrimino(void);
+void add_tetrimino(tetrimino_t *t_list, tetrimino_t *to_add);
+void free_array(char **array);
+void free_t_list(tetrimino_t *t_list);
+int get_t_list_size(tetrimino_t *t_list);
+
+/* tetrimino_debug.c */
+
+void debug_t_list(tetrimino_t *t_list);
+void debug_tetrimino(tetrimino_t *tetrimino);
+
+/* init_tetris.c */
 
 tetris_t *init_tetris(void);
 
