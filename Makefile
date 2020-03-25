@@ -21,6 +21,7 @@ SRC			=	src/tetris.c		\
 				src/init_tetris.c	\
 				src/get_arg.c		\
 				src/set_tetris.c	\
+				src/set_keys.c		\
 
 test_SRC	=	$(SRC)					\
 				tests/test_init_tetris.c\
@@ -29,6 +30,7 @@ test_SRC	=	$(SRC)					\
 				tests/test_set_next.c	\
 				tests/test_set_debug.c	\
 				tests/test_get_arg.c	\
+				tests/test_set_keys.c	\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
@@ -80,7 +82,7 @@ coverage:		$(test_OBJ)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
 				./unit_test
-				gcovr -e tests/ -e src/display.c
+				gcovr -e tests/
 				$(RM) -f $(test_NAME)
 				$(RM) *.gcda
 				$(RM) *.gcno
