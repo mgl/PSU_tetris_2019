@@ -68,7 +68,6 @@ fclean:		clean
 re:	fclean all
 
 tests_run:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
@@ -78,7 +77,6 @@ tests_run:		$(test_OBJ)
 				$(RM) *.gcno
 
 coverage:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
@@ -89,7 +87,6 @@ coverage:		$(test_OBJ)
 				$(RM) *.gcno
 
 branch	:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean

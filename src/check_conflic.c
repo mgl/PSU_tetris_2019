@@ -11,9 +11,9 @@ int compare(int comp, int *array)
 {
     int count = 0;
 
-    for(int i = 0; i < 6; i++){
-            if (comp == array[i])
-                count++;
+    for (int i = 0; i < 6; i++){
+        if (comp == array[i])
+            count++;
     }
     if (count > 1) {
         return (false);

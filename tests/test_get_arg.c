@@ -21,15 +21,13 @@ Test(get_arg, tetris_NULL)
     cr_assert_eq(res, ERROR);
 }
 
-Test(get_arg, arg_invalid, .init=cr_redirect_stdout)
+Test(get_arg, arg_invalid)
 {
     tetris_t *tetris = init_tetris();
     int ac = 2;
     char *av[] = {"./tetris", "-k"};
 
-    get_arg(ac, av, tetris);
-    fflush(stdout);
-    cr_assert_stdout_eq_str("Error\n");
+    cr_assert_eq(get_arg(ac, av, tetris), ERROR);
 }
 
 Test(get_arg, h, .init=cr_redirect_stdout)
@@ -41,6 +39,7 @@ Test(get_arg, h, .init=cr_redirect_stdout)
     get_arg(ac, av, tetris);
     fflush(stdout);
     cr_assert_stdout_eq_str(USAGE, "%s", stdout);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
 }
 
 Test(get_arg, help, .init=cr_redirect_stdout)
@@ -52,6 +51,8 @@ Test(get_arg, help, .init=cr_redirect_stdout)
     get_arg(ac, av, tetris);
     fflush(stdout);
     cr_assert_stdout_eq_str(USAGE, "%s", stdout);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
+
 }
 
 Test(get_arg, L)
@@ -60,7 +61,7 @@ Test(get_arg, L)
     int ac = 3;
     char *av[] = {"./tetris", "-L", "10"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->level, 10);
 }
 
@@ -70,7 +71,7 @@ Test(get_arg, level)
     int ac = 3;
     char *av[] = {"./tetris", "--level", "10"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->level, 10);
 }
 
@@ -80,7 +81,7 @@ Test(get_arg, D)
     int ac = 2;
     char *av[] = {"./tetris", "-D"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->debug, true);
 }
 
@@ -120,7 +121,7 @@ Test(get_arg, size_map)
     int ac = 3;
     char *av[] = {"./tetris", "--map-size", "25,30"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->height, 25);
     cr_assert_eq(tetris->width, 30);
 }
@@ -132,7 +133,7 @@ Test(get_arg, l)
     int ac = 3;
     char *av[] = {"./tetris", "-l", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_left, 'y');
 }
 
@@ -142,7 +143,7 @@ Test(get_arg, key_left)
     int ac = 3;
     char *av[] = {"./tetris", "--key-left", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_left, 'y');
 }
 
@@ -152,7 +153,7 @@ Test(get_arg, r)
     int ac = 3;
     char *av[] = {"./tetris", "-r", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_right, 'y');
 }
 
@@ -162,7 +163,7 @@ Test(get_arg, t)
     int ac = 3;
     char *av[] = {"./tetris", "-t", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_turn, 'y');
 }
 
@@ -172,7 +173,7 @@ Test(get_arg, d)
     int ac = 3;
     char *av[] = {"./tetris", "-d", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_drop, 'y');
 }
 
@@ -182,7 +183,7 @@ Test(get_arg, q)
     int ac = 3;
     char *av[] = {"./tetris", "-q", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_quit, 'y');
 }
 
@@ -192,6 +193,6 @@ Test(get_arg, p)
     int ac = 3;
     char *av[] = {"./tetris", "-p", "y"};
 
-    get_arg(ac, av, tetris);
+    cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
     cr_assert_eq(tetris->k_pause, 'y', "key: %c\natt: %c", tetris->k_pause, 'y');
 }
