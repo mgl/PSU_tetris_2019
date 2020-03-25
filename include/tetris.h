@@ -82,5 +82,7 @@ int set_size(tetris_t *tetris, char *arg);
 int set_level(tetris_t *tetris, char *level);
 int set_debug(tetris_t *tetris);
 int set_keys(tetris_t *tetris, char *arg, int opt);
+int compare(int comp, int *array);
+int check_conflict_keys(tetris_t *tetris);
 
 #endif /* !TETRIS_H_ */

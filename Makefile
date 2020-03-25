@@ -16,6 +16,7 @@ SRC	=	src/tetrimino/file/open_dir.c	\
 		src/get_arg.c					\
 		src/set_tetris.c				\
 		src/set_keys.c					\
+		src/check_conflic.c				\
 
 test_NAME	=	unit_test
 
@@ -29,6 +30,8 @@ test_SRC	=	$(SRC)					\
 				tests/test_set_debug.c	\
 				tests/test_get_arg.c	\
 				tests/test_set_keys.c	\
+				tests/test_compare.c	\
+				tests/test_ckeck_conflict_keys.c\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
