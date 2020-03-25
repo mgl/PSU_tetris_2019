@@ -7,14 +7,15 @@
 
 NAME		=	tetris
 
-SRC	=	src/tetrimino/file/open_dir.c	\
-		src/tetrimino/file/sort_array.c \
-		src/tetris.c					\
-		src/tetrimino/tetrimino.c 		\
-		src/tetrimino/tetrimino_debug.c \
-		src/init_tetris.c 				\
-		src/get_arg.c					\
-		src/set_tetris.c				\
+SRC	=	src/tetrimino/file/open_dir.c		\
+		src/tetrimino/file/sort_array.c 	\
+		src/tetris.c						\
+		src/tetrimino/tetrimino.c 			\
+		src/tetrimino/tetrimino_debug.c 	\
+		src/tetrimino/file/read_tetrimino.c \
+		src/init_tetris.c 					\
+		src/get_arg.c						\
+		src/set_tetris.c					\
 
 test_NAME	=	unit_test
 

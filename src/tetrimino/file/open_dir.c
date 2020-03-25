@@ -33,6 +33,5 @@ char **get_tetriminos_array(void)
     }
     files[f_count] = NULL;
     sort_files(files, f_count);
-    print_triminos(files);
     return (files);
 }

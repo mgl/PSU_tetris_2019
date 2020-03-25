@@ -9,6 +9,8 @@
 
 int main(void)
 {
-    get_tetriminos_array();
+    tetrimino_t *t_list = init_tetrimino();
+
+    read_tetriminos(t_list);
     return (0);
 }
