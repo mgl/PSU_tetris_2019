@@ -28,6 +28,8 @@ SRC =	my_getnbr_base.c					\
 		my_strncmp.c						\
 		my_strncpy.c						\
 		my_strupcase.c						\
+		my_str_to_word_array.c				\
+		my_is_char_alpha.c					\
 		printf/get_int_digits.c 			\
 		printf/my_printf.c					\
 		printf/my_put_long.c				\
