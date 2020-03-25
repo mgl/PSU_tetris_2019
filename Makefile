@@ -8,15 +8,18 @@
 NAME		=	tetris
 
 
-test_NAME	=		unit_test
+test_NAME	=	unit_test
 
-MAIN 		=		src/main.c
+MAIN 		=	src/main.c
 
 SRC			=	src/tetris.c		\
 				src/init_tetris.c	\
+				src/get_arg.c		\
+				src/set_tetris.c	\
 
 test_SRC	=	$(SRC)					\
 				tests/test_init_tetris.c\
+				tests/test_set_level.c	\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
@@ -24,7 +27,7 @@ test_OBJ	=	$(test_SRC:%.c=%.o)
 
 INCLUDE		=	-I include
 
-CFLAGS		=	-W -Wall -Wshadow -Wextra $(INCLUDE)
+CFLAGS		=	-W -Wall -Wshadow -Wextra $(INCLUDE) -g
 
 LIB_DIR		=	lib/my
 

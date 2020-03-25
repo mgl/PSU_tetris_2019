@@ -9,5 +9,7 @@
 
 int tetris(int ac, char **av)
 {
+    tetris_t *tetris = init_tetris();
+    get_arg(ac, av, tetris);
     return (0);
 }

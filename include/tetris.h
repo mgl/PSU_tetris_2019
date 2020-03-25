@@ -10,6 +10,9 @@
 
 #include <unistd.h>
 #include <ncurses.h>
+#define OPTSTRING "hL:l:r:t:d:q:w:D"
+#define ERROR 84
+#define SUCCESS 0
 
 typedef struct tetrimino_s {
     int width;
@@ -41,5 +44,12 @@ int tetris(int ac, char **av);
 /* initialisation */
 
 tetris_t *init_tetris(void);
+
+/* paramètre */
+
+int get_arg(int ac, char **av, tetris_t *tetris);
+int set_next(tetris_t *tetris, char *arg);
+int set_size(tetris_t *tetris, char *arg);
+int set_level(tetris_t *tetris, char *level);
 
 #endif /* !TETRIS_H_ */
