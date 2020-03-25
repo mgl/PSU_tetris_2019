@@ -16,6 +16,8 @@ SRC	=	src/tetrimino/file/open_dir.c		\
 		src/init_tetris.c 					\
 		src/get_arg.c						\
 		src/set_tetris.c					\
+		src/set_keys.c						\
+		src/check_conflic.c					\
 
 test_NAME	=	unit_test
 
@@ -27,6 +29,10 @@ test_SRC	=	$(SRC)					\
 				tests/test_set_size.c	\
 				tests/test_set_next.c	\
 				tests/test_set_debug.c	\
+				tests/test_get_arg.c	\
+				tests/test_set_keys.c	\
+				tests/test_compare.c	\
+				tests/test_ckeck_conflict_keys.c\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
@@ -63,7 +69,6 @@ fclean:		clean
 re:	fclean all
 
 tests_run:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
@@ -73,18 +78,16 @@ tests_run:		$(test_OBJ)
 				$(RM) *.gcno
 
 coverage:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
 				./unit_test
-				gcovr -e tests/ -e src/display.c
+				gcovr -e tests/
 				$(RM) -f $(test_NAME)
 				$(RM) *.gcda
 				$(RM) *.gcno
 
 branch	:		$(test_OBJ)
-				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean

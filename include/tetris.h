@@ -20,7 +20,7 @@
 #include <stdio.h>
 
 #define T_DIR ("tetriminos")
-#define OPTSTRING "hL:l:r:t:d:q:w:D"
+#define OPTSTRING "hL:l:r:t:d:q:p:w:D"
 #define ERROR 84
 #define SUCCESS 0
 
@@ -89,6 +89,8 @@ int set_next(tetris_t *tetris, char *arg);
 int set_size(tetris_t *tetris, char *arg);
 int set_level(tetris_t *tetris, char *level);
 int set_debug(tetris_t *tetris);
-
+int set_keys(tetris_t *tetris, char *arg, int opt);
+int compare(int comp, int *array);
+int check_conflict_keys(tetris_t *tetris);
 
 #endif /* !TETRIS_H_ */
