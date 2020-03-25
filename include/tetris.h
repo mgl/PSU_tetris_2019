@@ -68,5 +68,7 @@ int get_arg(int ac, char **av, tetris_t *tetris);
 int set_next(tetris_t *tetris, char *arg);
 int set_size(tetris_t *tetris, char *arg);
 int set_level(tetris_t *tetris, char *level);
+int set_debug(tetris_t *tetris);
+
 
 #endif /* !TETRIS_H_ */

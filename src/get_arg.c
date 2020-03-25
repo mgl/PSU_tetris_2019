@@ -50,7 +50,7 @@ int get_arg(int ac, char **av, tetris_t *tetris)
             set_next(tetris, optarg);
             break;
         case 'D':
-            tetris->debug = true;
+            set_debug(tetris);
             break;
         default:
             printf("Error\n");

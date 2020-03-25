@@ -43,3 +43,9 @@ int set_next(tetris_t *tetris, char *arg)
         return (ERROR);
     }
 }
+
+int set_debug(tetris_t *tetris)
+{
+    tetris->debug = true;
+    return (SUCCESS);
+}

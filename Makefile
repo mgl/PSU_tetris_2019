@@ -26,6 +26,8 @@ test_SRC	=	$(SRC)					\
 				tests/test_init_tetris.c\
 				tests/test_set_level.c	\
 				tests/test_set_size.c	\
+				tests/test_set_next.c	\
+				tests/test_set_debug.c	\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
