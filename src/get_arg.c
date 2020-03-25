@@ -22,7 +22,7 @@ static struct option long_option[] = {
         {"key-pause", 1, 0, 'p'},
         {"map-size", 1, 0, 'm'},
         {"without-next", 1, 0, 'w'},
-        {"debub", 0, 0, 'D'}
+        {"debug", 0, 0, 'D'}
     };
 
 int get_arg(int ac, char **av, tetris_t *tetris)
@@ -35,7 +35,7 @@ int get_arg(int ac, char **av, tetris_t *tetris)
     while ((opt = getopt_long(ac, av, OPTSTRING, long_option, &option_index)) != -1) {
         switch ((char)opt) {
         case 'h':
-            printf("%s\n", USAGE);
+            printf("%s", USAGE);
             break;
         case 'L':
             set_level(tetris, optarg);

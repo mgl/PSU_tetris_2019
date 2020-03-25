@@ -28,6 +28,7 @@ test_SRC	=	$(SRC)					\
 				tests/test_set_size.c	\
 				tests/test_set_next.c	\
 				tests/test_set_debug.c	\
+				tests/test_get_arg.c	\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 

@@ -20,6 +20,6 @@ Options:\n\
 -p --key-pause={K}   PAUSE/RESTART the game using the K key (def: space bar)\n\
 --map-size={row,col} Set the numbers of rows and columns of the map (def: 20,10)\n\
 -w --without-next    Hide next tetrimino (def: false)\n\
--D --debug           Debug mode (def: false)$\n"
+-D --debug           Debug mode (def: false)\n"
 
 #endif /* !USAGE_H_ */
