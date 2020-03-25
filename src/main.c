@@ -7,7 +7,8 @@
 
 #include "tetris.h"
 
-int main(int ac, char **av)
+int main(void)
 {
-    return (tetris(ac, av));
+    get_tetriminos_array();
+    return (0);
 }
