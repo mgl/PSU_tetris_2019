@@ -23,5 +23,5 @@ Test(set_level, false_arg)
     int res = set_level(tetris, "ad");
 
     cr_assert_eq(tetris->level, 1);
-    cr_assert_eq(res, SUCCESS);
+    cr_assert_eq(res, ERROR);
 }

@@ -30,7 +30,7 @@ int get_arg(int ac, char **av, tetris_t *tetris)
     int opt = 0;
     int option_index = 0;
 
-    if (tetris)
+    if (!tetris)
         return (ERROR);
     while ((opt = getopt_long(ac, av, OPTSTRING, long_option, &option_index)) != -1) {
         switch ((char)opt) {
@@ -53,6 +53,7 @@ int get_arg(int ac, char **av, tetris_t *tetris)
             tetris->debug = true;
             break;
         default:
+            printf("Error\n");
             break;
         }
     }
