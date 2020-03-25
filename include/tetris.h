@@ -17,6 +17,9 @@
 #include <dirent.h>
 
 #define T_DIR ("tetriminos")
+#define OPTSTRING "hL:l:r:t:d:q:w:D"
+#define ERROR 84
+#define SUCCESS 0
 
 typedef struct tetrimino_s {
     int width;
@@ -70,5 +73,14 @@ char **get_tetriminos_array(void);
 /* init_tetris.c */
 
 tetris_t *init_tetris(void);
+
+/* paramètre */
+
+int get_arg(int ac, char **av, tetris_t *tetris);
+int set_next(tetris_t *tetris, char *arg);
+int set_size(tetris_t *tetris, char *arg);
+int set_level(tetris_t *tetris, char *level);
+int set_debug(tetris_t *tetris);
+
 
 #endif /* !TETRIS_H_ */

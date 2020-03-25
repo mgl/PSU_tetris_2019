@@ -13,13 +13,19 @@ SRC	=	src/tetrimino/file/open_dir.c	\
 		src/tetrimino/tetrimino.c 		\
 		src/tetrimino/tetrimino_debug.c \
 		src/init_tetris.c 				\
+		src/get_arg.c					\
+		src/set_tetris.c				\
 
-test_NAME	=		unit_test
+test_NAME	=	unit_test
 
-MAIN 		=		src/main.c
+MAIN 		=	src/main.c
 
 test_SRC	=	$(SRC)					\
 				tests/test_init_tetris.c\
+				tests/test_set_level.c	\
+				tests/test_set_size.c	\
+				tests/test_set_next.c	\
+				tests/test_set_debug.c	\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
 
@@ -58,30 +64,33 @@ re:	fclean all
 tests_run:		$(test_OBJ)
 				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
-				rm -f $(test_OBJ)
+				$(RM) -f $(test_OBJ)
+				$(MAKE) clean
 				./unit_test
-				rm -f $(test_NAME)
-				rm *.gcda
-				rm *.gcno
+				$(RM) -f $(test_NAME)
+				$(RM) *.gcda
+				$(RM) *.gcno
 
 coverage:		$(test_OBJ)
 				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
-				rm -f $(test_OBJ)
+				$(RM) -f $(test_OBJ)
+				$(MAKE) clean
 				./unit_test
 				gcovr -e tests/ -e src/display.c
-				rm -f $(test_NAME)
-				rm *.gcda
-				rm *.gcno
+				$(RM) -f $(test_NAME)
+				$(RM) *.gcda
+				$(RM) *.gcno
 
 branch	:		$(test_OBJ)
 				$(MAKE) -C $(LIB_DIR)
 				$(CC) -o $(test_NAME) $(test_SRC) $(test_LDFLAGS) $(CFLAGS)
-				rm -f $(test_OBJ)
+				$(RM) -f $(test_OBJ)
+				$(MAKE) clean
 				./unit_test
 				gcovr -e tests/ -e src/display.c --branch
-				rm -f $(test_NAME)
-				rm *.gcda
-				rm *.gcno
+				$(RM) -f $(test_NAME)
+				$(RM) *.gcda
+				$(RM) *.gcno
 
 .PHONY: all clean fclean re
