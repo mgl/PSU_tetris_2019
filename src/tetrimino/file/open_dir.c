@@ -7,6 +7,15 @@
 
 #include "tetris.h"
 
+int get_file_size(char *fpath)
+{
+    struct stat st;
+
+    if (stat(fpath, &st) == 0)
+        return (st.st_size);
+    return (-1);
+}
+
 void print_triminos(char **array)
 {
     if (array == NULL)

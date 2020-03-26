@@ -35,13 +35,12 @@ void add_tetrimino(tetrimino_t *t_list, tetrimino_t *to_add)
     tmp->next = to_add;
 }
 
-void free_array(char **array)
+void free_tetrimino(tetrimino_t *tetri)
 {
-    if (array == NULL)
-        return;
-    for (int i = 0; array[i] != NULL; i++)
-        free(array[i]);
-    free(array);
+    if (tetri != NULL) {
+        free_array(tetri->array);
+        free(tetri);
+    }
 }
 
 void free_t_list(tetrimino_t *t_list)
@@ -52,8 +51,7 @@ void free_t_list(tetrimino_t *t_list)
         return;
     while (t_list != NULL) {
         next = t_list->next;
-        free_array(t_list->array);
-        free(t_list);
+        free_tetrimino(t_list);
         t_list = next;
     }
 }

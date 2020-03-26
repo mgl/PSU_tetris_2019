@@ -21,7 +21,7 @@ void debug_tetrimino(tetrimino_t *tetrimino)
         return;
     if (tetrimino->array == NULL || tetrimino->name == NULL)
         return;
-    my_printf("Tetriminos : Name %s, Size %d*%d : Color %d :\n", \
+    my_printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n", \
     tetrimino->name, tetrimino->width, tetrimino->height, tetrimino->color);
     print_array(tetrimino->array);
 }
