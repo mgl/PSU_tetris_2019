@@ -15,6 +15,9 @@
 #include <curses.h>
 #include <sys/types.h>
 #include <dirent.h>
+#include <fcntl.h>
+#include <sys/stat.h>
+#include <stdio.h>
 
 #define T_DIR ("tetriminos")
 #define OPTSTRING "hL:l:r:t:d:q:p:w:D"
@@ -81,6 +84,11 @@ void sort_files(char **files, int size);
 /* open_dir.c */
 
 char **get_tetriminos_array(void);
+
+/* read_tetrimino.c */
+
+void read_tetriminos(tetrimino_t *t_list);
+void file_to_tetrimino(tetrimino_t *t_list, char *file);
 
 /* init_tetris.c */
 
