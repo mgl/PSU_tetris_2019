@@ -7,15 +7,27 @@
 
 #include "tetris.h"
 
+void load_first_line(tetrimino_t *tetri, char *line)
+{
+    char **array = NULL;
+
+    if (line == NULL)
+        return;
+    array = my_str_to_word_array(line, ' ');
+}
+
 void file_to_tetrimino(tetrimino_t *t_list, char *fpath)
 {
     int fd = open(fpath, O_RDONLY);
     char *line = NULL;
     size_t n = NULL;
+    tetrimino_t *tetrimino = init_tetrimino();
 
     if (fd == -1)
         return;
     getline(&line, &n, fd);
+    if (line != NULL)
+        free(line);
     my_printf("reading %s\n", fpath);
 }
 
