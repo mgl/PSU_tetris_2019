@@ -7,8 +7,10 @@
 
 #include "tetris.h"
 
-int main(void)
+int main(int ac, char **av)
 {
-    get_tetriminos_array();
+    tetris_t *tetris = init_tetris();
+    get_arg(ac, av, tetris);
+    arg_debug(tetris);
     return (0);
 }
