@@ -7,7 +7,7 @@
 
 #include "tetris.h"
 
-int main(void)
+int main(int ac, char **av)
 {
     tetrimino_t *t_list = init_tetrimino();
 

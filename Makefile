@@ -7,31 +7,32 @@
 
 NAME		=	tetris
 
-SRC	=	src/tetrimino/file/open_dir.c		\
-		src/tetrimino/file/sort_array.c 	\
-		src/tetris.c						\
-		src/tetrimino/tetrimino.c 			\
-		src/tetrimino/tetrimino_debug.c 	\
+SRC	=	src/tetrimino/file/open_dir.c	\
+		src/tetrimino/file/sort_array.c \
+		src/tetrimino/tetrimino.c 		\
+		src/tetrimino/tetrimino_debug.c \
 		src/tetrimino/file/read_tetrimino.c \
-		src/init_tetris.c 					\
-		src/get_arg.c						\
-		src/set_tetris.c					\
-		src/set_keys.c						\
-		src/check_conflic.c					\
+		src/tetris.c					\
+		src/init_tetris.c				\
+		src/get_arg.c					\
+		src/set_tetris.c				\
+		src/set_keys.c					\
+		src/check_conflic.c				\
+		src/debug_arg.c					\
 
 test_NAME	=	unit_test
 
 MAIN 		=	src/main.c
 
-test_SRC	=	$(SRC)					\
-				tests/test_init_tetris.c\
-				tests/test_set_level.c	\
-				tests/test_set_size.c	\
-				tests/test_set_next.c	\
-				tests/test_set_debug.c	\
-				tests/test_get_arg.c	\
-				tests/test_set_keys.c	\
-				tests/test_compare.c	\
+test_SRC	=	$(SRC)							\
+				tests/test_init_tetris.c		\
+				tests/test_set_level.c			\
+				tests/test_set_size.c			\
+				tests/test_set_next.c			\
+				tests/test_set_debug.c			\
+				tests/test_get_arg.c			\
+				tests/test_set_keys.c			\
+				tests/test_compare.c			\
 				tests/test_ckeck_conflict_keys.c\
 
 OBJ			=	$(SRC:%.c=%.o) $(MAIN:%.c=%.o)
@@ -40,7 +41,7 @@ test_OBJ	=	$(test_SRC:%.c=%.o)
 
 INCLUDE		=	-I include
 
-CFLAGS		=	-O2 -W -Wall -Wshadow -Wextra $(INCLUDE)
+CFLAGS		=	-O2 -W -Wall -Wshadow -Wextra $(INCLUDE) -g
 
 LIB_DIR		=	lib/my
 
@@ -92,7 +93,7 @@ branch	:		$(test_OBJ)
 				$(RM) -f $(test_OBJ)
 				$(MAKE) clean
 				./unit_test
-				gcovr -e tests/ -e src/display.c --branch
+				gcovr -e tests/ --branch
 				$(RM) -f $(test_NAME)
 				$(RM) *.gcda
 				$(RM) *.gcno
