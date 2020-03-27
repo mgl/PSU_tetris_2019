@@ -5,6 +5,8 @@
 ** my_put_error
 */
 
+#include <unistd.h>
+
 void my_error_putchar(char c)
 {
     write(2, &c, 1);
@@ -18,5 +20,4 @@ void my_put_error(char *str)
         my_error_putchar(str[i]);
         i++;
     }
-    return (0);
 }

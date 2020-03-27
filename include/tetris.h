@@ -121,6 +121,15 @@ int arg_debug(tetris_t *tetris);
 
 int game(tetris_t *tetris);
 
+/* display */
+
+void print_in_middle(WINDOW *win, int width, char *string);
+void diplay_name(void);
+windows_t *create_windows(tetris_t *tetris);
+int check_term_size(tetris_t *tetris, int cols);
+void f_refresh(windows_t *win);
+
+
 /* tools */
 
 void my_put_error(char *str);

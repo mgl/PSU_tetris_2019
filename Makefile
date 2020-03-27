@@ -22,6 +22,8 @@ SRC	=	src/tetrimino/file/open_dir.c		\
 		src/debug_arg.c					\
 		src/game/game.c					\
 		src/my_put_error.c				\
+		src/game/display.c				\
+		src/game/windows.c				\
 
 test_NAME	=	unit_test
 
@@ -48,7 +50,7 @@ CFLAGS		=	-O2 -W -Wall -Wshadow -Wextra $(INCLUDE) -g
 
 LIB_DIR		=	lib/my
 
-LIB			=	-L $(LIB_DIR) -lmy -lncurses -lmenu
+LIB			=	-L $(LIB_DIR) -lmy -lncurses
 
 LDFLAGS		=	$(LIB)
 

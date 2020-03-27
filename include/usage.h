@@ -22,4 +22,10 @@ Options:\n\
 -w --without-next    Hide next tetrimino (def: false)\n\
 -D --debug           Debug mode (def: false)\n"
 
+#define NAME "\
+  *** *** *** *** * ***\n\
+   *  *    *  * *   *  \n\
+   *  ***  *  **  * ***\n\
+   *  *    *  * * *   *\n\
+   *  ***  *  * * * ***\n"
 #endif /* !USAGE_H_ */

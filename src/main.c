@@ -9,9 +9,5 @@
 
 int main(int ac, char **av)
 {
-    tetrimino_t *t_list = init_tetrimino();
-
-    read_tetriminos(t_list);
-    debug_t_list(t_list);
-    return (0);
+    return (tetris(ac, av));
 }

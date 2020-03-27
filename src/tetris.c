@@ -9,8 +9,8 @@
 
 int tetris(int ac, char **av)
 {
-    //tetrimino_t *t_list = init_tetrimino();
-    tetris_t *tetris = init_tetris(NULL);
+    tetrimino_t *t_list = init_tetrimino();
+    tetris_t *tetris = init_tetris(t_list);
 
     get_arg(ac, av, tetris);
     game(tetris);
