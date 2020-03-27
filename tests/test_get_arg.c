@@ -126,8 +126,7 @@ Test(get_arg, size_map)
     cr_assert_eq(tetris->width, 30);
 }
 
-
-Test(get_arg, l)
+Test(get_arg, le)
 {
     tetris_t *tetris = init_tetris();
     int ac = 3;
@@ -194,5 +193,6 @@ Test(get_arg, p)
     char *av[] = {"./tetris", "-p", "y"};
 
     cr_assert_eq(get_arg(ac, av, tetris), SUCCESS);
-    cr_assert_eq(tetris->k_pause, 'y', "key: %c\natt: %c", tetris->k_pause, 'y');
+    cr_assert_eq(tetris->k_pause, 'y', "key: %c\natt: %c", tetris->k_pause, \
+    'y');
 }

@@ -36,9 +36,9 @@ char *transform_key(int key)
 char *transform_next(int next)
 {
     if (next == false) {
-        return ("yes");
+        return ("Yes");
     } else {
-        return ("no");
+        return ("No");
     }
 }
 

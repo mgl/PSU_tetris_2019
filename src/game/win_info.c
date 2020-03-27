@@ -15,5 +15,6 @@ void display_info(tetris_t *tetris, game_t *game)
     mvwprintw(game->win->info, 3, 1, "score:      \t%i", game->score);
     mvwprintw(game->win->info, 5, 1, "Lines:      \t%i", game->lines);
     mvwprintw(game->win->info, 6, 1, "Level:      \t%i", game->level);
-    mvwprintw(game->win->info, 8, 1, "Timer:      \t%i:%i", game->clock / CLOCKS_PER_SEC, game->clock % CLOCKS_PER_SEC);
+    mvwprintw(game->win->info, 8, 1, "Timer:      \t%i:%i", \
+    game->clock / CLOCKS_PER_SEC, game->clock % CLOCKS_PER_SEC);
 }

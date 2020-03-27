@@ -11,7 +11,7 @@
 Test(compare, true)
 {
     int array[5] = {5, 6, 8, 3, 7};
-    int res =compare(8,array);
+    int res = compare(8, array);
 
     cr_assert_eq(res, true);
 }
@@ -19,7 +19,7 @@ Test(compare, true)
 Test(compare, false)
 {
     int array[5] = {5, 6, 8, 3, 8};
-    int res =compare(8,array);
+    int res = compare(8, array);
 
     cr_assert_eq(res, false);
 }

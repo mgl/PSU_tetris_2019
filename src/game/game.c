@@ -32,9 +32,9 @@ game_t *init_game(tetris_t *tetris)
     game_t *game = malloc(sizeof(game_t));
 
     if (!game)
-        return(NULL);
+        return (NULL);
     game->win = create_windows(tetris);
-    if(!game->win)
+    if (!game->win)
         return (NULL);
     game->score = 0;
     game->level = tetris->level;
@@ -51,21 +51,20 @@ int game(tetris_t *tetris)
 
     f_init();
     init_pair(1, COLOR_RED, COLOR_BLACK);
-    if (check_term_size(tetris, COLS)) {
-        game = init_game(tetris);
-        while (1) {
-            clear();
-            diplay_name();
-            display_info(tetris, game);
-            f_refresh(game->win);
-            sleep(1);
-            game->score++;
-        }
-        endwin();
-        return (0);
-    } else {
+    if (!check_term_size(tetris, COLS)) {
         endwin();
         return (ERROR);
     }
+    game = init_game(tetris);
+    while (1) {
+        clear();
+        diplay_name();
+        display_info(tetris, game);
+        f_refresh(game->win);
+        sleep(1);
+        game->score++;
+    }
+    endwin();
+    return (0);
 }
 

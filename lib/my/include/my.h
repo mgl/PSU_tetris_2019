@@ -55,7 +55,7 @@ char *my_strncat(char *dest, char const *str, int nb);
 /* print */
 
 int my_printf(char *s, ...);
-void my_putchar(char c);
+int my_putchar(char c);
 int my_putstr(char const *str);
 int my_showstr(char const *str);
 int my_put_nbr(int nb);
