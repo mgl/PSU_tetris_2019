@@ -25,7 +25,6 @@ int main()
 	int c;				
 	MENU *my_menu;
     WINDOW *my_menu_win;
-    WINDOW *next;
     int n_choices, i;
 	
 	/* Initialize curses */
@@ -47,8 +46,7 @@ int main()
 	my_menu = new_menu((ITEM **)my_items);
 
 	/* Create the window to be associated with the menu */
-        my_menu_win = newwin(10, 40, 3, 3);
-        next = newwin(5, 15, 10, (COLS - 20));
+        my_menu_win = newwin(10, 40, 4, 4);
         keypad(my_menu_win, TRUE);
      
 	/* Set main window and sub window */
@@ -61,20 +59,15 @@ int main()
 
 	/* Print a border around the main window and print a title */
         box(my_menu_win, 0, 0);
-        box(next, 0, 0);
-
 	print_in_middle(my_menu_win, 1, 0, 40, "My Menu", COLOR_PAIR(1));
-    print_in_middle(next, 1, 0, 15, "next", COLOR_PAIR(1));
 	mvwaddch(my_menu_win, 2, 0, ACS_LTEE);
 	mvwhline(my_menu_win, 2, 1, ACS_HLINE, 38);
 	mvwaddch(my_menu_win, 2, 39, ACS_RTEE);
-
+        
 	/* Post the menu */
 	post_menu(my_menu);
 	wrefresh(my_menu_win);
-	wrefresh(next);
-
-
+	
 	attron(COLOR_PAIR(2));
 	mvprintw(LINES - 2, 0, "Use PageUp and PageDown to scoll down or up a page of items");
 	mvprintw(LINES - 1, 0, "Arrow Keys to navigate (F1 to Exit)");

@@ -92,7 +92,7 @@ void file_to_tetrimino(tetrimino_t *t_list, char *file);
 
 /* init_tetris.c */
 
-tetris_t *init_tetris(void);
+tetris_t *init_tetris(tetrimino_t *t_list);
 
 /* paramètre */
 
@@ -109,5 +109,8 @@ int check_conflict_keys(tetris_t *tetris);
 
 int arg_debug(tetris_t *tetris);
 
+/* game */
+
+int game(tetris_t *tetris);
 
 #endif /* !TETRIS_H_ */

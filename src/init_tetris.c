@@ -8,7 +8,7 @@
 #include "tetris.h"
 #include <stdlib.h>
 
-tetris_t *init_tetris(void)
+tetris_t *init_tetris(tetrimino_t *t_list)
 {
     tetris_t *tetris = malloc(sizeof(tetris_t));
 
@@ -23,10 +23,7 @@ tetris_t *init_tetris(void)
     tetris->height = 20;
     tetris->next = false;
     tetris->debug = false;
-    tetris->t_list = malloc(sizeof(tetrimino_t));
-    if (!tetris->t_list) {
-        return (NULL);
-    }
-    tetris->t_list = NULL;
+    tetris->t_list = t_list;
+
     return (tetris);
 }
