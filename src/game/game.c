@@ -37,6 +37,7 @@ game_t *init_game(tetris_t *tetris)
     if (!game->win)
         return (NULL);
     game->score = 0;
+    game->hight_score = get_score();
     game->level = tetris->level;
     game->lines = 0;
     game->clock = clock();
@@ -46,12 +47,23 @@ game_t *init_game(tetris_t *tetris)
 int game(tetris_t *tetris)
 {
     int key;
-    int i = 0;
     game_t *game;
 
     f_init();
     init_pair(1, COLOR_RED, COLOR_BLACK);
-    if (!check_term_size(tetris, COLS)) {
+    if (check_term_size(tetris, COLS)) {
+        game = init_game(tetris);
+        while (game->score < 13) {
+            clear();
+            display(game, tetris);
+            f_refresh(game->win);
+            sleep(1);
+            game->score++;
+        }
+        write_new_hight_score(game);
+        endwin();
+        return (0);
+    } else {
         endwin();
         return (ERROR);
     }
