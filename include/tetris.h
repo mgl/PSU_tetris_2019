@@ -73,6 +73,7 @@ typedef struct game_s {
     int score;
     int level;
     int lines;
+    int hight_score;
     clock_t clock;
 } game_t;
 
@@ -130,6 +131,10 @@ int arg_debug(tetris_t *tetris);
 /* game */
 
 int game(tetris_t *tetris);
+int get_score(void);
+void new_hight_score(game_t *game);
+int write_new_hight_score(game_t *game);
+
 
 /* display */
 
@@ -143,11 +148,15 @@ void display_next(game_t *game, tetris_t *tetris);
 void display_tetris(game_t *game, tetris_t *tetris);
 void display(game_t *game, tetris_t *tetris);
 
+/* event */
 
+void analyse_event(game_t *game, tetris_t *tetris, int key);
+int event_quit(tetris_t *tetris, int key);
 
 
 /* tools */
 
 void my_put_error(char *str);
+char *nbr_to_str(int nbr);
 
 #endif /* !TETRIS_H_ */

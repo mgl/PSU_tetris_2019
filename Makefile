@@ -26,6 +26,7 @@ SRC	=	src/tetrimino/file/open_dir.c		\
 		src/game/windows.c				\
 		src/game/win_info.c				\
 		src/game/score.c				\
+		src/event/analyse_event.c		\
 
 test_NAME	=	unit_test
 
