@@ -46,7 +46,6 @@ game_t *init_game(tetris_t *tetris)
 int game(tetris_t *tetris)
 {
     int key;
-    int i = 0;
     game_t *game;
 
     f_init();
@@ -55,8 +54,7 @@ int game(tetris_t *tetris)
         game = init_game(tetris);
         while (1) {
             clear();
-            diplay_name();
-            display_info(tetris, game);
+            display(game, tetris);
             f_refresh(game->win);
             sleep(1);
             game->score++;

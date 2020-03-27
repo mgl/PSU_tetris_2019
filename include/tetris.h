@@ -138,7 +138,12 @@ void diplay_name(void);
 windows_t *create_windows(tetris_t *tetris);
 int check_term_size(tetris_t *tetris, int cols);
 void f_refresh(windows_t *win);
-void display_info(tetris_t *tetris, game_t *game);
+void display_info(game_t *game, tetris_t *tetris);
+void display_next(game_t *game, tetris_t *tetris);
+void display_tetris(game_t *game, tetris_t *tetris);
+void display(game_t *game, tetris_t *tetris);
+
+
 
 
 /* tools */
