@@ -13,7 +13,7 @@ int my_atoi(char const *str)
 
     if (!my_str_isnum(str))
         return (-1);
-    for (int i = 0; str[i] != 0; i++)
-        res *= 10 + (str[i] - '0');
+    for (int i = 0; str[i] != '\0'; ++i)
+        res = res * 10 + str[i] - '0';
     return (res);
 }

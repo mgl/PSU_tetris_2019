@@ -71,6 +71,7 @@ void add_tetrimino(tetrimino_t *t_list, tetrimino_t *to_add);
 void free_array(char **array);
 void free_t_list(tetrimino_t *t_list);
 int get_t_list_size(tetrimino_t *t_list);
+void free_tetrimino(tetrimino_t *tetri);
 
 /* tetrimino_debug.c */
 
@@ -84,11 +85,12 @@ void sort_files(char **files, int size);
 /* open_dir.c */
 
 char **get_tetriminos_array(void);
+int get_file_size(char *fpath);
 
 /* read_tetrimino.c */
 
 void read_tetriminos(tetrimino_t *t_list);
-void file_to_tetrimino(tetrimino_t *t_list, char *file);
+int file_to_tetrimino(tetrimino_t *t_list, char *file, char *name);
 
 /* init_tetris.c */
 

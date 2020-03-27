@@ -24,6 +24,7 @@ int my_pow(int const nb, int const p);
 
 int my_getnbr_base(char const *str, char const *base);
 int my_putnbr_base(int nbr, char const *base);
+int my_atoi(char const *str);
 
 /* Strings operations */
 

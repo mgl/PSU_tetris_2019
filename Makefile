@@ -12,14 +12,15 @@ SRC	=	src/tetrimino/file/open_dir.c		\
 		src/tetrimino/tetrimino.c 			\
 		src/tetrimino/tetrimino_debug.c 	\
 		src/tetrimino/file/read_tetrimino.c \
-		src/tetris.c						\
-		src/init_tetris.c					\
-		src/get_arg.c						\
-		src/set_tetris.c					\
-		src/set_keys.c						\
-		src/check_conflic.c					\
-		src/debug_arg.c						\
-		src/game/game.c						\
+		src/tetrimino/array_utils.c		\
+		src/tetris.c					\
+		src/init_tetris.c				\
+		src/get_arg.c					\
+		src/set_tetris.c				\
+		src/set_keys.c					\
+		src/check_conflic.c				\
+		src/debug_arg.c					\
+		src/game/game.c					\
 
 test_NAME	=	unit_test
 
