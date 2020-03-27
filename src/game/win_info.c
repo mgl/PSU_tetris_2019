@@ -14,9 +14,13 @@ void display_info(game_t *game, tetris_t *tetris)
     mvwaddch(game->win->info, 2, 0, ACS_LTEE);
 	mvwhline(game->win->info, 2, 1, ACS_HLINE, 28);
 	mvwaddch(game->win->info, 2, 29, ACS_RTEE);
-    mvwprintw(game->win->info, 4, 1, "Hight score:\t\t1500");
+    if (game->score > game->hight_score) {
+        mvwprintw(game->win->info, 4, 1, "Hight score:\t\t%i", game->score);
+    } else {
+        mvwprintw(game->win->info, 4, 1, "Hight score:\t\t%i", game->hight_score);
+    }
     mvwprintw(game->win->info, 5, 1, "score:      \t\t%i", game->score);
     mvwprintw(game->win->info, 7, 1, "Lines:      \t\t%i", game->lines);
-    mvwprintw(game->win->info, 7, 1, "Level:      \t\t%i", game->level);
-    mvwprintw(game->win->info, 9, 1, "Timer:      \t\t%i", game->clock / CLOCKS_PER_SEC);
+    mvwprintw(game->win->info, 8, 1, "Level:      \t\t%i", game->level);
+    mvwprintw(game->win->info, 10, 1, "Timer:      \t\t%i", game->clock / CLOCKS_PER_SEC);
 }

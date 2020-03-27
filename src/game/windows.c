@@ -11,7 +11,7 @@ windows_t *create_windows(tetris_t *tetris)
 {
     windows_t *windows = malloc(sizeof(windows_t));
 
-    windows->info = newwin(11, 30, 12, 1);
+    windows->info = newwin(12, 30, 11, 1);
     windows->next = newwin(7, 10, 1, 36 + tetris->width + 2);
     windows->tetris = newwin(tetris->height + 2, tetris->width + 2, 1, 33);
 
