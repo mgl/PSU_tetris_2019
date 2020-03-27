@@ -53,7 +53,7 @@ int game(tetris_t *tetris)
     init_pair(1, COLOR_RED, COLOR_BLACK);
     if (check_term_size(tetris, COLS)) {
         game = init_game(tetris);
-        while (1) {
+        while (game->score < 5) {
             clear();
             // key =  get(game->win->tetris);
             analyse_event(game, tetris, key);
@@ -68,15 +68,6 @@ int game(tetris_t *tetris)
     } else {
         endwin();
         return (ERROR);
-    }
-    game = init_game(tetris);
-    while (1) {
-        clear();
-        diplay_name();
-        display_info(tetris, game);
-        f_refresh(game->win);
-        sleep(1);
-        game->score++;
     }
     endwin();
     return (0);
