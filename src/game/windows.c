@@ -15,11 +15,10 @@ windows_t *create_windows(tetris_t *tetris)
     windows->next = newwin(4, 10, 1, 36 + tetris->width + 2);
     windows->tetris = newwin(tetris->height + 2, tetris->width + 2, 1, 33);
 
-    box(windows->info, 0, 0);
+
     box(windows->next, 0, 0);
     box(windows->tetris, 0, 0);
 
-    print_in_middle(windows->info, 30, "info");
     print_in_middle(windows->next, 10, "next");
     print_in_middle(windows->tetris, tetris->width + 2, "tetris");
     return (windows);

@@ -9,6 +9,7 @@
 #define TETRIS_H_
 
 #include "my.h"
+#include "usage.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <ncurses.h>
@@ -18,6 +19,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <time.h>
 
 #define T_DIR ("tetriminos")
 #define OPTSTRING "hL:l:r:t:d:q:p:w:D"
@@ -65,6 +67,14 @@ typedef struct windows_s {
     WINDOW *next;
     WINDOW *info;
 } windows_t;
+
+typedef struct game_s {
+    windows_t *win;
+    int score;
+    int level;
+    int lines;
+    clock_t clock;
+} game_t;
 
 /* tetris.c */
 
@@ -128,6 +138,7 @@ void diplay_name(void);
 windows_t *create_windows(tetris_t *tetris);
 int check_term_size(tetris_t *tetris, int cols);
 void f_refresh(windows_t *win);
+void display_info(tetris_t *tetris, game_t *game);
 
 
 /* tools */

@@ -6,7 +6,6 @@
 */
 
 #include "tetris.h"
-#include "usage.h"
 
 void print_in_middle(WINDOW *win, int width, char *string)
 {

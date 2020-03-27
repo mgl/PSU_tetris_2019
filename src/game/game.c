@@ -27,19 +27,39 @@ void f_init(void)
     f_set_color();
 }
 
+game_t *init_game(tetris_t *tetris)
+{
+    game_t *game = malloc(sizeof(game_t));
+
+    if (!game)
+        return(NULL);
+    game->win = create_windows(tetris);
+    if(!game->win)
+        return (NULL);
+    game->score = 0;
+    game->level = tetris->level;
+    game->lines = 0;
+    game->clock = clock();
+    return (game);
+}
+
 int game(tetris_t *tetris)
 {
     int key;
-    windows_t *windows;
+    int i = 0;
+    game_t *game;
 
     f_init();
     init_pair(1, COLOR_RED, COLOR_BLACK);
-
     if (check_term_size(tetris, COLS)) {
-        windows = create_windows(tetris);
-        diplay_name();
-        f_refresh(windows);
-        while ((key = getch()) != tetris->k_quit) {
+        game = init_game(tetris);
+        while (1) {
+            clear();
+            diplay_name();
+            display_info(tetris, game);
+            f_refresh(game->win);
+            sleep(1);
+            game->score++;
         }
         endwin();
         return (0);
