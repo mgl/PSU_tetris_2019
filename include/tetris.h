@@ -60,6 +60,12 @@ typedef struct tetris_s {
     tetrimino_t *t_list;
 } tetris_t;
 
+typedef struct windows_s {
+    WINDOW *tetris;
+    WINDOW *next;
+    WINDOW *info;
+} windows_t;
+
 /* tetris.c */
 
 int tetris(int ac, char **av);
@@ -114,5 +120,9 @@ int arg_debug(tetris_t *tetris);
 /* game */
 
 int game(tetris_t *tetris);
+
+/* tools */
+
+void my_put_error(char *str);
 
 #endif /* !TETRIS_H_ */
