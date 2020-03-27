@@ -7,6 +7,16 @@
 
 #include "tetris.h"
 
+char *get_file_name(char *fpath)
+{
+    char *res = my_strdup(fpath);
+
+    res = my_revstr(res);
+    res = my_strcpy(res, &res[10]);
+    res = my_revstr(res);
+    return (res);
+}
+
 int get_file_size(char *fpath)
 {
     struct stat st;

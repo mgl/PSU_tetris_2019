@@ -7,6 +7,15 @@
 
 #include "tetris.h"
 
+void set_backline(char *str)
+{
+    int i = 0;
+
+    while (str[i] != '\n')
+        i++;
+    str[i] = '\0';
+}
+
 void sort_sublist(char **files, int size, int i)
 {
     int j = 0;

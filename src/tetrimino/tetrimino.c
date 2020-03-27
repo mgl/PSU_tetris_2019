@@ -18,6 +18,7 @@ tetrimino_t *init_tetrimino(void)
         tetrimino->height = 0;
         tetrimino->width = 0;
         tetrimino->next = NULL;
+        tetrimino->error = 0;
     }
     return (tetrimino);
 }

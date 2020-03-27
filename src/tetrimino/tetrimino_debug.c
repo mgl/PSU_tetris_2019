@@ -19,9 +19,13 @@ void debug_tetrimino(tetrimino_t *tetrimino)
 {
     if (tetrimino == NULL)
         return;
-    if (tetrimino->array == NULL || tetrimino->name == NULL)
+    if (!tetrimino->name)
         return;
-    my_printf("Tetriminos : Name %s : Size %d*%d : Color %d :\n", \
+    if (tetrimino->error) {
+        my_printf("Tetriminos :  Name %s :  Error\n", tetrimino->name);
+        return;
+    }
+    my_printf("Tetriminos :  Name %s :  Size %d*%d :  Color %d :\n", \
     tetrimino->name, tetrimino->width, tetrimino->height, tetrimino->color);
     print_array(tetrimino->array);
 }
@@ -30,10 +34,10 @@ void debug_t_list(tetrimino_t *t_list)
 {
     tetrimino_t *tmp = t_list;
 
-    my_printf("Tetriminos: %d\n", get_t_list_size(t_list));
+    my_printf("Tetriminos:  %d\n", get_t_list_size(t_list));
     if (t_list == NULL)
         return;
-    while (tmp->next != NULL) {
+    while (tmp != NULL) {
         debug_tetrimino(tmp);
         tmp = tmp->next;
     }

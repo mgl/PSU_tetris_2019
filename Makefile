@@ -49,7 +49,7 @@ test_OBJ	=	$(test_SRC:%.c=%.o)
 
 INCLUDE		=	-I include
 
-CFLAGS		=	-O2 -W -Wall -Wshadow -Wextra $(INCLUDE) -g
+CFLAGS		=	-W -Wall -Wshadow -Wextra $(INCLUDE) -g
 
 LIB_DIR		=	lib/my
 

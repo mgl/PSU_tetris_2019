@@ -9,9 +9,13 @@
 
 char *my_strcat(char *dest, char const *str)
 {
-    int dest_len = my_strlen(dest);
-    int str_len = my_strlen(str);
+    int dest_len = 0;
+    int str_len = 0;
 
+    if (dest == NULL || str == NULL)
+        return (NULL);
+    dest_len = my_strlen(dest);
+    str_len = my_strlen(str);
     if (str_len == 0) {
         return (dest);
     }

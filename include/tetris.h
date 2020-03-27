@@ -44,6 +44,7 @@ typedef struct tetrimino_s {
     int color;
     char *name;
     char **array;
+    int error;
     struct tetrimino_s *next;
 } tetrimino_t;
 
@@ -98,11 +99,13 @@ void debug_tetrimino(tetrimino_t *tetrimino);
 /* sort_array.c */
 
 void sort_files(char **files, int size);
+void set_backline(char *str);
 
 /* open_dir.c */
 
 char **get_tetriminos_array(void);
 int get_file_size(char *fpath);
+char *get_file_name(char *fpath);
 
 /* read_tetrimino.c */
 

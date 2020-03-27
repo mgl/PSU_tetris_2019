@@ -16,7 +16,7 @@ Test(set_keys, error)
     cr_assert_eq(res, ERROR);
 }
 
-Test(set_keys, l)
+Test(set_keys, le)
 {
     tetris_t *tetris = init_tetris();
     int res = set_keys(tetris, "i", 'l');

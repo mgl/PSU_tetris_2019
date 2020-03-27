@@ -32,9 +32,9 @@ game_t *init_game(tetris_t *tetris)
     game_t *game = malloc(sizeof(game_t));
 
     if (!game)
-        return(NULL);
+        return (NULL);
     game->win = create_windows(tetris);
-    if(!game->win)
+    if (!game->win)
         return (NULL);
     game->score = 0;
     game->hight_score = get_score();
@@ -69,5 +69,16 @@ int game(tetris_t *tetris)
         endwin();
         return (ERROR);
     }
+    game = init_game(tetris);
+    while (1) {
+        clear();
+        diplay_name();
+        display_info(tetris, game);
+        f_refresh(game->win);
+        sleep(1);
+        game->score++;
+    }
+    endwin();
+    return (0);
 }
 
