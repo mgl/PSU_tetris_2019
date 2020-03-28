@@ -19,7 +19,7 @@ void set_backline(char *str)
 void sort_sublist(char **files, int size, int i)
 {
     int j = 0;
-    char minStr[4097];
+    char *minStr = malloc(4097 * sizeof(char));
     int min_idx = i;
 
     my_strcpy(minStr, files[i]);

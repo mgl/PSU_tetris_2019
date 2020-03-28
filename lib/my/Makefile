@@ -56,7 +56,7 @@ NAME = libmy.a
 
 LIB = -I include -I printf/include
 
-CFLAGS = -O2 -W -Wall -Wextra -Wshadow $(LIB)
+CFLAGS = -O2 -g -W -Wall -Wextra -Wshadow $(LIB)
 
 CC = gcc
 

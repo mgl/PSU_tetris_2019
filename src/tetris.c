@@ -21,6 +21,5 @@ int tetris(int ac, char **av)
         getchar();
     }
     game(tetris);
-    free_t_list(t_list);
     return (0);
 }

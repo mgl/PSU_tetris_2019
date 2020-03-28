@@ -50,7 +50,7 @@ void free_t_list(tetrimino_t *t_list)
 
     if (t_list == NULL)
         return;
-    while (t_list != NULL) {
+    while (t_list->next != NULL) {
         next = t_list->next;
         free_tetrimino(t_list);
         t_list = next;

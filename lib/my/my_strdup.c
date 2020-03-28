@@ -9,7 +9,8 @@
 
 char *my_strdup(char const *src)
 {
-    char *str_dup = malloc((my_strlen(src) + 1) * sizeof(char));
+    char *str_dup = malloc((my_strlen(src) + 2) * sizeof(char));
+
     my_strcpy(str_dup, src);
     return (str_dup);
 }
