@@ -10,7 +10,8 @@
 
 Test(set_debug, true)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_debug(tetris);
 
     cr_assert_eq(tetris->debug, true);

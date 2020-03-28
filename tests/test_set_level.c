@@ -10,7 +10,8 @@
 
 Test(set_level, true_arg)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_level(tetris, "50");
 
     cr_assert_eq(tetris->level, 50);
@@ -19,7 +20,8 @@ Test(set_level, true_arg)
 
 Test(set_level, false_arg)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_level(tetris, "ad");
 
     cr_assert_eq(tetris->level, 1);

@@ -23,7 +23,7 @@ Test(get_arg, tetris_NULL)
 
 Test(get_arg, arg_invalid)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 2;
     char *av[] = {"./tetris", "-k"};
 
@@ -32,7 +32,7 @@ Test(get_arg, arg_invalid)
 
 Test(get_arg, h, .init=cr_redirect_stdout)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 2;
     char *av[] = {"./tetris", "-h"};
 
@@ -44,7 +44,7 @@ Test(get_arg, h, .init=cr_redirect_stdout)
 
 Test(get_arg, help, .init=cr_redirect_stdout)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 2;
     char *av[] = {"./tetris", "-h"};
 
@@ -57,7 +57,7 @@ Test(get_arg, help, .init=cr_redirect_stdout)
 
 Test(get_arg, L)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 3;
     char *av[] = {"./tetris", "-L", "10"};
 
@@ -67,7 +67,7 @@ Test(get_arg, L)
 
 Test(get_arg, level)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 3;
     char *av[] = {"./tetris", "--level", "10"};
 
@@ -77,7 +77,7 @@ Test(get_arg, level)
 
 Test(get_arg, D)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 2;
     char *av[] = {"./tetris", "-D"};
 
@@ -87,7 +87,7 @@ Test(get_arg, D)
 
 Test(get_arg, debug)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 2;
     char *av[] = {"./tetris", "--debug"};
 
@@ -97,7 +97,7 @@ Test(get_arg, debug)
 
 Test(get_arg, w)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 3;
     char *av[] = {"./tetris", "-w", "true"};
 
@@ -107,7 +107,7 @@ Test(get_arg, w)
 
 Test(get_arg, without_next)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 3;
     char *av[] = {"./tetris", "--without-next", "true"};
 
@@ -117,7 +117,7 @@ Test(get_arg, without_next)
 
 Test(get_arg, size_map)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int ac = 3;
     char *av[] = {"./tetris", "--map-size", "25,30"};
 
@@ -128,7 +128,8 @@ Test(get_arg, size_map)
 
 Test(get_arg, le)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-l", "y"};
 
@@ -138,7 +139,8 @@ Test(get_arg, le)
 
 Test(get_arg, key_left)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "--key-left", "y"};
 
@@ -148,7 +150,8 @@ Test(get_arg, key_left)
 
 Test(get_arg, r)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-r", "y"};
 
@@ -158,7 +161,8 @@ Test(get_arg, r)
 
 Test(get_arg, t)
 {
-    tetris_t *tetris = init_tetris();
+   tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-t", "y"};
 
@@ -168,7 +172,8 @@ Test(get_arg, t)
 
 Test(get_arg, d)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-d", "y"};
 
@@ -178,7 +183,8 @@ Test(get_arg, d)
 
 Test(get_arg, q)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-q", "y"};
 
@@ -188,7 +194,8 @@ Test(get_arg, q)
 
 Test(get_arg, p)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int ac = 3;
     char *av[] = {"./tetris", "-p", "y"};
 
