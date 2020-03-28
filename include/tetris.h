@@ -137,6 +137,8 @@ int game(tetris_t *tetris);
 int get_score(void);
 void new_hight_score(game_t *game);
 int write_new_hight_score(game_t *game);
+void quit(game_t *game);
+int count_char_line(game_t *game, tetris_t *tetris);
 
 
 /* display */
