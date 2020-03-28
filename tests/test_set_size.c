@@ -10,7 +10,8 @@
 
 Test(set_size, true)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_size(tetris, "50,65");
 
     cr_assert_eq(tetris->width, 65, "%i\n", tetris->width);
@@ -20,7 +21,8 @@ Test(set_size, true)
 
 Test(set_size, arg1_false)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_size(tetris, "a,65");
 
     cr_assert_eq(tetris->width, 10);
@@ -30,7 +32,8 @@ Test(set_size, arg1_false)
 
 Test(set_size, arg2_false)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_size(tetris, "10,d");
 
     cr_assert_eq(tetris->width, 10);

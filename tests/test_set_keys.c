@@ -10,7 +10,7 @@
 
 Test(set_keys, error)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, "i", 'k');
 
     cr_assert_eq(res, ERROR);
@@ -18,7 +18,7 @@ Test(set_keys, error)
 
 Test(set_keys, le)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, "i", 'l');
 
     cr_assert_eq(tetris->k_left, 'i');
@@ -27,7 +27,7 @@ Test(set_keys, le)
 
 Test(set_keys, r)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, "1", 'r');
 
     cr_assert_eq(tetris->k_right, '1');
@@ -36,7 +36,7 @@ Test(set_keys, r)
 
 Test(set_keys, t)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, "o", 't');
 
     cr_assert_eq(tetris->k_turn, 'o');
@@ -45,7 +45,7 @@ Test(set_keys, t)
 
 Test(set_keys, q)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, " ", 'q');
 
     cr_assert_eq(tetris->k_quit, ' ');
@@ -54,7 +54,7 @@ Test(set_keys, q)
 
 Test(set_keys, p)
 {
-    tetris_t *tetris = init_tetris();
+    tetris_t *tetris = init_tetris(NULL);
     int res = set_keys(tetris, "$", 'p');
 
     cr_assert_eq(tetris->k_pause, '$');

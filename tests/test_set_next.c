@@ -10,7 +10,8 @@
 
 Test(set_next, true)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_next(tetris, "true");
 
     cr_assert_eq(tetris->next, true);
@@ -19,7 +20,8 @@ Test(set_next, true)
 
 Test(set_next, false)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_next(tetris, "false");
 
     cr_assert_eq(tetris->next, false);
@@ -28,7 +30,8 @@ Test(set_next, false)
 
 Test(set_next, invalid_arg)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
     int res = set_next(tetris, "ad");
 
     cr_assert_eq(tetris->next, false);

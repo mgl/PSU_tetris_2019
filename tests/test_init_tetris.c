@@ -10,7 +10,8 @@
 
 Test(init_tetris, true)
 {
-    tetris_t *tetris = init_tetris();
+    tetrimino_t *list = NULL;
+    tetris_t *tetris = init_tetris(list);
 
     if (tetris) {
         cr_assert_eq(tetris->level, 1);
