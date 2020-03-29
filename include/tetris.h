@@ -146,7 +146,7 @@ int count_char_line(game_t *game, tetris_t *tetris);
 void print_in_middle(WINDOW *win, int width, char *string);
 void diplay_name(void);
 windows_t *create_windows(tetris_t *tetris);
-int check_term_size(tetris_t *tetris, int cols);
+int check_term_size(tetris_t *tetris);
 void f_refresh(windows_t *win);
 void display_info(game_t *game, tetris_t *tetris);
 void display_next(game_t *game, tetris_t *tetris);

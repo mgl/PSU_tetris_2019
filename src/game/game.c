@@ -51,22 +51,24 @@ int game(tetris_t *tetris)
 
     f_init();
     init_pair(1, COLOR_RED, COLOR_BLACK);
-    if (check_term_size(tetris, COLS)) {
+    if (check_term_size(tetris)) {
         game = init_game(tetris);
         nodelay(game->win->tetris, true);
-        while ((key =  wgetch(game->win->tetris))!= tetris->k_quit) {
+        while ((key = wgetch(game->win->tetris))!= tetris->k_quit) {
             clear();
             analyse_event(game, tetris, key);
             display(game, tetris);
             f_refresh(game->win);
             sleep(1);
+            
             game->score++;
         }
         write_new_hight_score(game);
         endwin();
         return (0);
     } else {
-        quit(game);
+        endwin();
+        my_put_error("Invalid terminal size\n");
         return (ERROR);
     }
 }

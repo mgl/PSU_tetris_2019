@@ -31,8 +31,8 @@ void display_next(game_t *game, tetris_t *tetris)
     box(game->win->next, 0, 0);
     print_in_middle(game->win->next, 10, "next");
     mvwaddch(game->win->next, 2, 0, ACS_LTEE);
-	mvwhline(game->win->next, 2, 1, ACS_HLINE, 8);
-	mvwaddch(game->win->next, 2, 9, ACS_RTEE);
+    mvwhline(game->win->next, 2, 1, ACS_HLINE, 8);
+    mvwaddch(game->win->next, 2, 9, ACS_RTEE);
 }
 
 void display_tetris(game_t *game, tetris_t *tetris)

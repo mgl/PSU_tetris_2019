@@ -18,12 +18,15 @@ windows_t *create_windows(tetris_t *tetris)
     return (windows);
 }
 
-int check_term_size(tetris_t *tetris, int cols)
+int check_term_size(tetris_t *tetris)
 {
-    if (cols > (48 + tetris->width)) {
+    int height_min = 13;
+
+    if (tetris->height > height_min)
+        height_min = tetris->height;
+    if (COLS > (48 + tetris->width) && LINES > height_min) {
         return (true);
     } else {
-        my_put_error("Invalid terminal size");
         return (false);
     }
 }

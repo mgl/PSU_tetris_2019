@@ -4,3 +4,4 @@ lib/my/libmy.a
 tetris
 menu.c
 *.o
+vgcore.4204
