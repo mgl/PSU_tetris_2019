@@ -16,13 +16,12 @@ void f_set_color(void)
 
 }
 
-void f_init(void)
+void f_init(game_t *game)
 {
     initscr();
     start_color();
     cbreak();
     noecho();
-    keypad(stdscr, TRUE);
     curs_set(0);
     f_set_color();
 }
@@ -41,30 +40,28 @@ game_t *init_game(tetris_t *tetris)
     game->level = tetris->level;
     game->lines = 0;
     game->clock = clock();
+    game->map = malloc(sizeof(char *) * tetris->height);
+    keypad(game->win->tetris, true);
+    nodelay(game->win->tetris, true);
     return (game);
 }
 
 int game(tetris_t *tetris)
 {
     int key;
-    game_t *game;
+    game_t *game = NULL;
 
-    f_init();
-    init_pair(1, COLOR_RED, COLOR_BLACK);
+    f_init(game);
     if (check_term_size(tetris)) {
         game = init_game(tetris);
-        nodelay(game->win->tetris, true);
         while ((key = wgetch(game->win->tetris))!= tetris->k_quit) {
             clear();
             analyse_event(game, tetris, key);
             display(game, tetris);
-            f_refresh(game->win);
             sleep(1);
-            
             game->score++;
         }
-        write_new_hight_score(game);
-        endwin();
+        quit(game);
         return (0);
     } else {
         endwin();

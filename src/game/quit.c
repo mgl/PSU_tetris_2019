@@ -9,6 +9,7 @@
 
 void quit(game_t *game)
 {
+    write_new_hight_score(game);
     delwin(game->win->info);
     delwin(game->win->next);
     delwin(game->win->tetris);

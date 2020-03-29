@@ -75,6 +75,7 @@ typedef struct game_s {
     int level;
     int lines;
     int hight_score;
+    char **map;
     clock_t clock;
 } game_t;
 

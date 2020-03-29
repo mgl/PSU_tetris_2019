@@ -53,4 +53,5 @@ void display(game_t *game, tetris_t *tetris)
     display_tetris(game, tetris);
     display_next(game, tetris);
     display_info(game, tetris);
+    f_refresh(game->win);
 }
